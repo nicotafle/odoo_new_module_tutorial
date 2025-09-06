@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <record id="real_state_tree_view" model="ir.ui.view">
+        <field name="name">real_state_tree_view</field>
+        <field name="model">state.property</field>
+        <field name="arch" type="xml">
+            <tree string="Properties">
+                <field name="name"/>
+                <field name="post_code"/>
+                <field name="bedrooms"/>
+                <field name="facades"/>
+                <field name="garage"/>
+                <field name="garden"/>
+                <field name="garden_orientation"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

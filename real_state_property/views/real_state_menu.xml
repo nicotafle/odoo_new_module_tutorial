@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<odoo>
+    <menuitem id="real_state_menu" name="Real State">
+        <menuitem id="real_state_main_menu" name="Advertaisment">
+            <menuitem id="real_state_menu_action" action="real_state_action"/>
+        </menuitem>
+        <menuitem id="state_property_type_main_menu" name="Settings">
+            <menuitem id="real_state_type_menu_action" action="state_property_type_action"/>
+        </menuitem>
+    </menuitem>
+</odoo>

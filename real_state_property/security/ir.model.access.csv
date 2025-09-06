@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+real_state_property.access_state_property,access_state_property,real_state_property.model_state_property,base.group_user,1,1,1,1
+real_state_property.access_state_property_type,access_state_property_type,real_state_property.model_state_property_type,base.group_user,1,1,1,1
