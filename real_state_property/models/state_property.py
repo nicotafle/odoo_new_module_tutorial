@@ -15,7 +15,11 @@ class StateProperty(models.Model):
             ('sold', 'Sold'),
             ('canceled', 'Canceled')
     ], string= 'Status', default= 'new', required= True)
-    property_type = fields.Many2one('state_property_type.name_type')
+    property_type_id = fields.Many2one('state.property.type', string='Property Type')
+    user_ids = fields.Many2one('res.users', string='Seller', default= lambda self: self.env.user)
+    partner_ids = fields.Many2one('res.partner', string='Buyer', copy= False)
+    tag_ids = fields.Many2many('state.property.tag', string='Tags',)
+    offer_ids = fields.One2many('state.property.offer', 'property_ids', string='Offers')
     post_code = fields.Char(string= 'Post Code')
     date_availability = fields.Date(string= 'Availability Date', default= lambda self: fields.Date.add(fields.Date.today(), months=3), copy= False)
     expected_price = fields.Float(string= 'Expected Price', required= True)

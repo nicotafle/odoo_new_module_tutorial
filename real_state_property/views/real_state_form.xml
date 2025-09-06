@@ -11,10 +11,11 @@
                     <h1>
                         <field class="text-break" options="{'line_breaks': False}" widget="text" name="name" placeholder="e.g. Property Title"/>
                     </h1>
+                    <field name="tag_ids" widget="many2many_tags"/>
                     <group>
                         <group>
                             <field name="post_code"/>
-                            <field name="property_type"/>
+                            <field name="property_type_id"/>
                             <field name="state"/>
                         </group>
                         <group>
@@ -36,6 +37,15 @@
                                 <field name="garden_orientation"/>
                             </group>
                         </page>
+                        <page string="Other Info" name="other_info">
+                            <group>
+                                <field name="user_ids"/>
+                                <field name="partner_ids"/>
+                            </group>
+                        </page>
+                        <page sring="Offers" name="offers">
+                            <field name="offer_ids"/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
@@ -48,6 +58,7 @@
         <field name="arch" type="xml">
             <search>
                 <field name="name"/>
+                <field name="property_type_id"/>
                 <field name="post_code"/>
                 <field name="living_area"/>
                 <filter string="Available" name="available" domain="[('state', 'in', ['new', 'offer_received'])]"/>
