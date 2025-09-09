@@ -6,22 +6,28 @@
         <field name="model">state.property</field>
         <field name="arch" type="xml">
             <form>
+                <header>
+                    <button name="action_sold_state" type="object" class="oe_highlight" string="Sold"/>
+                    <button name="action_cancel_state" type="object" string="Cancel"/>
+                </header>
                 <sheet>
                     <field name="active" invisible="1"/>
                     <h1>
                         <field class="text-break" options="{'line_breaks': False}" widget="text" name="name" placeholder="e.g. Property Title"/>
                     </h1>
-                    <field name="tag_ids" widget="many2many_tags"/>
                     <group>
                         <group>
+                            <field name="tag_ids" widget="many2many_tags"/>
                             <field name="post_code"/>
                             <field name="property_type_id"/>
-                            <field name="state"/>
+                            <field name="state" readonly="state == 'sold' or state == 'canceled'"/>
                         </group>
                         <group>
                             <field name="date_availability"/>
                             <field name="selling_price"/>
                             <field name="expected_price"/>
+                            <field name="best_price"/>
+                            <field name="total_area"/>
                         </group>
                     </group>
                     <notebook>
@@ -43,7 +49,7 @@
                                 <field name="partner_ids"/>
                             </group>
                         </page>
-                        <page sring="Offers" name="offers">
+                        <page string="Offers" name="offers">
                             <field name="offer_ids"/>
                         </page>
                     </notebook>
